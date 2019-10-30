@@ -1,6 +1,6 @@
 {
   "name": "cdk-multi-profile-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Adds multi profile/account and mfa support to cdk apps",
   "keywords": [
     "aws",

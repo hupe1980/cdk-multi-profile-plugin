@@ -20,7 +20,11 @@ describe('isAvailable', () => {
 
 describe('canProvideCredentials', () => {
   it('can not provide', async () => {
-    const mpcs = new MultiProfileCredentialsSource('name', { '4711': 'profile' }, 'filename');
+    const mpcs = new MultiProfileCredentialsSource(
+      'name',
+      { '4711': 'profile' },
+      'filename'
+    );
     const actual = await mpcs.canProvideCredentials('0815');
     expect(actual).toBe(false);
   });
