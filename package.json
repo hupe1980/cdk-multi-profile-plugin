@@ -1,0 +1,58 @@
+{
+  "name": "cdk-multi-profile-plugin",
+  "version": "0.0.1",
+  "description": "Adds multi profile/account and mfa support to cdk apps",
+  "keywords": [
+    "aws",
+    "cdk",
+    "profile",
+    "mfa",
+    "mfaSerial",
+    "multi-account",
+    "plugin"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hupe1980/cdk-multi-profile-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hupe1980/cdk-multi-profile-plugin/issues"
+  },
+  "homepage": "https://github.com/hupe1980/cdk-multi-profile-plugin#readme",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf lib && tsc",
+    "build:watch": "rimraf lib && tsc -w",
+    "prepare": "npm run build && npm run test",
+    "test": "jest",
+    "lint": "eslint '*/**/*.{ts,tsx}' --report-unused-disable-directives"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "fs-extra": "^8.1.0",
+    "inquirer": "^7.0.0",
+    "lodash.isempty": "^4.4.0"
+  },
+  "peerDependencies": {
+    "aws-cdk": ">=1.10.0",
+    "aws-sdk": ">=2.500.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/inquirer": "^6.5.0",
+    "@types/jest": "^24.0.21",
+    "@types/lodash.isempty": "^4.4.6",
+    "@types/node": "^12.11.7",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "aws-cdk": "^1.15.0",
+    "aws-sdk": "^2.559.0",
+    "eslint": "^6.6.0",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  }
+}
