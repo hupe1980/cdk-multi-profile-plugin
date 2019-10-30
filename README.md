@@ -1,4 +1,6 @@
 # cdk-multi-profile-plugin
+[![Build Status](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin.svg?branch=master)](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin)
+
 > Adds multi profile/account and mfa support to cdk apps
 
 :warning: This is experimental and subject to breaking changes.
@@ -26,7 +28,7 @@ The second way is to add the following entry to the cdk.json file
   "plugin": ["cdk-multi-profile-plugin"]
 }
 ```
-Add the account / profile mapping in the package.json 
+Finally, add the account / profile mapping in the package.json 
 
 ```javascript
 // package.json
@@ -34,7 +36,7 @@ Add the account / profile mapping in the package.json
     ...
     "devDependencies": {
         "aws-cdk": "^1.15.0",
-        "cdk-multi-profile-plugin": "^1.0.0",
+        "cdk-multi-profile-plugin": "^0.0.1",
         ...
     }
     "awsProfiles": {
