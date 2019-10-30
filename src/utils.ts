@@ -3,6 +3,8 @@ import * as path from 'path';
 import * as os from 'os';
 import * as inquirer from 'inquirer';
 
+const tokenCache = new Map<string, string>();
+
 export const tokenCodeFn = async (
   mfaSerial: string,
   callback: (err?: Error, token?: string) => void
@@ -12,7 +14,16 @@ export const tokenCodeFn = async (
       name: 'token',
       type: 'input',
       default: '',
-      message: `MFA token for ${mfaSerial}:`
+      message: `MFA token for ${mfaSerial}:`,
+      validate: async input => {
+        if (tokenCache.has(mfaSerial) && tokenCache.get(mfaSerial) === input) {
+          return `Token ${input} has already been used in this run`;
+        }
+
+        tokenCache.set(mfaSerial, input);
+
+        return true;
+      }
     });
     return callback(undefined, token);
   } catch (e) {
