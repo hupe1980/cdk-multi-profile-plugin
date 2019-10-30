@@ -1,6 +1,6 @@
 {
   "name": "cdk-multi-profile-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Adds multi profile/account and mfa support to cdk apps",
   "keywords": [
     "aws",
@@ -22,6 +22,9 @@
   "homepage": "https://github.com/hupe1980/cdk-multi-profile-plugin#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rimraf lib && tsc",
     "build:watch": "rimraf lib && tsc -w",
