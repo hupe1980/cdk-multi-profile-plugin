@@ -3,8 +3,6 @@
 
 > Adds multi profile/account and mfa support to cdk apps
 
-:warning: This is experimental and subject to breaking changes.
-
 ## Installation
 
 ```bash
