@@ -1,0 +1,8 @@
+{
+  "npmClient": "npm",
+  "packages": [
+    "cdk-multi-profile-plugin",
+    "example"
+  ],
+  "version": "0.0.6"
+}

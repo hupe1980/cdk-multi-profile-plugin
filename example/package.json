@@ -1,0 +1,36 @@
+{
+  "name": "example",
+  "version": "0.0.6",
+  "private": true,
+  "bin": {
+    "tester": "bin/example.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "lint": "echo 'No linting!'",
+    "deploy": "cdk deploy Example*",
+    "synth": "cdk synth Example*",
+    "diff": "cdk diff Example*",
+    "destroy": "cdk destroy Example*"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "^1.15.0",
+    "source-map-support": "^0.5.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "aws-cdk": "^1.15.0",
+    "cdk-multi-profile-plugin": "^0.0.6",
+    "jest": "^24.9.0",
+    "jest-cdk-snapshot": "^1.1.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.1.0",
+    "typescript": "~3.6.2"
+  },
+  "awsProfiles": {
+    "123": "default",
+    "456": "default"
+  }
+}
