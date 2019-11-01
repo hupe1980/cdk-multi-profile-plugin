@@ -3,7 +3,9 @@ import * as path from 'path';
 import * as os from 'os';
 import * as inquirer from 'inquirer';
 
-const tokenCache = new Map<string, string>();
+import { MfaTokenCache } from './mfa-token-cache';
+
+const tokenCache = new MfaTokenCache();
 
 export const tokenCodeFn = async (
   mfaSerial: string,
@@ -16,7 +18,7 @@ export const tokenCodeFn = async (
       default: '',
       message: `MFA token for ${mfaSerial}:`,
       validate: async input => {
-        if (tokenCache.has(mfaSerial) && tokenCache.get(mfaSerial) === input) {
+        if (tokenCache.has(mfaSerial, input)) {
           return `Token ${input} has already been used in this run`;
         }
 

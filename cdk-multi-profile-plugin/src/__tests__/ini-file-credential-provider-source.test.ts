@@ -1,41 +1,41 @@
-import { MultiProfileCredentialsSource } from '../multi-profile-credentials-source';
+import { IniFileCredentialProviderSource } from '../ini-file-credential-provider-source';
 
 describe('isAvailable', () => {
   it('should be not available', async () => {
-    const mpcs = new MultiProfileCredentialsSource('name', {}, 'filename');
-    const actual = await mpcs.isAvailable();
+    const ifcps = new IniFileCredentialProviderSource('name', {}, 'filename');
+    const actual = await ifcps.isAvailable();
     expect(actual).toBe(false);
   });
 
   it('should be available', async () => {
-    const mpcs = new MultiProfileCredentialsSource(
+    const ifcps = new IniFileCredentialProviderSource(
       'name',
       { '123': 'profile' },
       'filename'
     );
-    const actual = await mpcs.isAvailable();
+    const actual = await ifcps.isAvailable();
     expect(actual).toBe(true);
   });
 });
 
 describe('canProvideCredentials', () => {
   it('can not provide', async () => {
-    const mpcs = new MultiProfileCredentialsSource(
+    const ifcps = new IniFileCredentialProviderSource(
       'name',
       { '4711': 'profile' },
       'filename'
     );
-    const actual = await mpcs.canProvideCredentials('0815');
+    const actual = await ifcps.canProvideCredentials('0815');
     expect(actual).toBe(false);
   });
 
   it('can provide', async () => {
-    const mpcs = new MultiProfileCredentialsSource(
+    const ifcps = new IniFileCredentialProviderSource(
       'name',
       { '4711': 'profile' },
       'filename'
     );
-    const actual = await mpcs.canProvideCredentials('4711');
+    const actual = await ifcps.canProvideCredentials('4711');
     expect(actual).toBe(true);
   });
 });

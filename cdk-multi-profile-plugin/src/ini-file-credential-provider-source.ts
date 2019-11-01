@@ -4,11 +4,12 @@ import { SharedIniFileCredentials, Credentials } from 'aws-sdk';
 import { CredentialProviderSource, Mode } from 'aws-cdk';
 
 import { tokenCodeFn } from './utils';
-import { CredentialsCache } from './credentials-cache';
+import { ProfileCredentialsCache } from './profile-credentials-cache';
 
-const credentialsCache = new CredentialsCache();
+const profileCredentialsCache = new ProfileCredentialsCache();
 
-export class MultiProfileCredentialsSource implements CredentialProviderSource {
+export class IniFileCredentialProviderSource
+  implements CredentialProviderSource {
   constructor(
     public readonly name: string,
     private readonly profiles: { [key: string]: string },
@@ -23,7 +24,7 @@ export class MultiProfileCredentialsSource implements CredentialProviderSource {
 
   public getProvider(accountId: string, mode: Mode): Promise<Credentials> {
     const profile = this.profiles[accountId];
-    
+
     console.log('\n');
     console.log(
       ` 🚀  Using profile ${green(profile)} for account ${green(
@@ -32,7 +33,7 @@ export class MultiProfileCredentialsSource implements CredentialProviderSource {
     );
     console.log('\n');
 
-    let credentials = credentialsCache.get(accountId);
+    let credentials = profileCredentialsCache.get(profile);
 
     if (!credentials) {
       credentials = new SharedIniFileCredentials({
@@ -41,7 +42,7 @@ export class MultiProfileCredentialsSource implements CredentialProviderSource {
         profile
       });
 
-      credentialsCache.set(accountId, credentials);
+      profileCredentialsCache.set(profile, credentials);
     }
 
     return Promise.resolve(credentials);

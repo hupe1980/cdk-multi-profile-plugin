@@ -1,6 +1,6 @@
 import { Plugin, PluginHost } from 'aws-cdk';
 
-import { MultiProfileCredentialsSource } from './multi-profile-credentials-source';
+import { IniFileCredentialProviderSource } from './ini-file-credential-provider-source';
 
 export class MultiProfilePlugin implements Plugin {
   public readonly version = '1';
@@ -12,7 +12,7 @@ export class MultiProfilePlugin implements Plugin {
 
   public init(host: PluginHost): void {
     host.registerCredentialProviderSource(
-      new MultiProfileCredentialsSource(
+      new IniFileCredentialProviderSource(
         'cdk-multi-profile-plugin',
         this.profiles,
         this.filename

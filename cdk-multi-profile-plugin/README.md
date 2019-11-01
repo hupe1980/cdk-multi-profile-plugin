@@ -1,4 +1,5 @@
 # cdk-multi-profile-plugin
+
 [![Build Status](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin.svg?branch=master)](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin)
 
 > Adds multi profile/account and mfa support to cdk apps
@@ -26,7 +27,8 @@ The second way is to add the following entry to the cdk.json file
   "plugin": ["cdk-multi-profile-plugin"]
 }
 ```
-Finally, add the account / profile mapping in the package.json 
+
+Finally, add the account / profile mapping in the package.json
 
 ```javascript
 // package.json
@@ -45,10 +47,10 @@ Finally, add the account / profile mapping in the package.json
 ```
 
 ## Environment Variables
-The plugin supports the following  environment variables:
+
+The plugin supports the following environment variables:
+
 - AWS_SHARED_CREDENTIALS_FILE – Specifies the location of the file that the AWS CLI uses to store access keys. The default path is ~/.aws/credentials).
-
-
 
 ## License
 
