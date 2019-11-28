@@ -51,6 +51,7 @@ Finally, add the account / profile mapping in the package.json
 The plugin supports the following environment variables:
 
 - AWS_SHARED_CREDENTIALS_FILE – Specifies the location of the file that the AWS CLI uses to store access keys. The default path is ~/.aws/credentials).
+- IGNORE_CDK_MULTI_PROFILE_PLUGIN=true - Turn off the plugin
 
 ## License
 
