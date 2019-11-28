@@ -45,18 +45,18 @@
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
     "@types/inquirer": "^6.5.0",
-    "@types/jest": "^24.0.21",
+    "@types/jest": "^24.0.23",
     "@types/lodash.isempty": "^4.4.6",
-    "@types/node": "^12.11.7",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.6.0",
-    "aws-cdk": "^1.15.0",
-    "aws-sdk": "^2.559.0",
-    "eslint": "^6.6.0",
-    "eslint-plugin-jest": "^23.0.2",
+    "@types/node": "^12.12.14",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "aws-cdk": "^1.18.0",
+    "aws-sdk": "^2.580.0",
+    "eslint": "^6.7.1",
+    "eslint-plugin-jest": "^23.0.5",
     "jest": "^24.9.0",
     "rimraf": "^3.0.0",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.6.4"
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
   }
 }

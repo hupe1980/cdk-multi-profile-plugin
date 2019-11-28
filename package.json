@@ -10,6 +10,6 @@
     "all:upgrade": "npm upgrade; lerna exec --no-bail -- npm upgrade"
   },
   "devDependencies": {
-    "lerna": "^3.18.3"
+    "lerna": "^3.19.0"
   }
 }

@@ -11,6 +11,10 @@ export class MultiProfilePlugin implements Plugin {
   ) {}
 
   public init(host: PluginHost): void {
+    if (process.env.IGNORE_CDK_MULTI_PROFILE_PLUGIN) {
+      return;
+    }
+
     host.registerCredentialProviderSource(
       new IniFileCredentialProviderSource(
         'cdk-multi-profile-plugin',

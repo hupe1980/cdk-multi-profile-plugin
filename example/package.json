@@ -11,26 +11,28 @@
     "test": "jest",
     "lint": "echo 'No linting!'",
     "deploy": "cdk deploy Example*",
+    "deploy:ignore": "IGNORE_CDK_MULTI_PROFILE_PLUGIN=false cdk deploy Example*",
     "synth": "cdk synth Example*",
     "diff": "cdk diff Example*",
     "destroy": "cdk destroy Example*"
   },
   "dependencies": {
-    "@aws-cdk/core": "^1.15.0",
+    "@aws-cdk/core": "^1.18.0",
     "source-map-support": "^0.5.9"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "aws-cdk": "^1.15.0",
+    "@aws-cdk/assert": "^1.18.0",
+    "@types/jest": "^24.0.23",
+    "aws-cdk": "^1.18.0",
     "cdk-multi-profile-plugin": "^1.0.0",
     "jest": "^24.9.0",
-    "jest-cdk-snapshot": "^1.1.0",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.1.0",
-    "typescript": "~3.6.2"
+    "jest-cdk-snapshot": "^1.2.0",
+    "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.2"
   },
   "awsProfiles": {
-    "123": "default",
-    "456": "default"
+    "123": "default123",
+    "456": "default123"
   }
 }
