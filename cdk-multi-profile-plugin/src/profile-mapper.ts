@@ -57,8 +57,10 @@ export class PackageJsonProfileMapper implements ProfileMapper {
     }
 }
 
-// Will use ~/.cdkmultiprofileplung.json for mapping an accountnumber to a local profile
-export class HomeDirJsonProfileMapper implements ProfileMapper {
+// TODO:
+// Will default to ~/.cdkmultiprofileplung.json and can be overriden by environment variable
+// CDK_MULTI_PROFILE_PLUGIN_CONFIG=/path/to/file.json
+export class EnvironmentAwareGlobalProfileMapper implements ProfileMapper {
     resolve(): { [p: string]: string } {
         return new JsonFileProfileMapper({
                 workingDirectory: os.homedir(),
@@ -68,6 +70,7 @@ export class HomeDirJsonProfileMapper implements ProfileMapper {
     }
 }
 
+// Can be used in local project directory. Can be added or ignored by your VCS
 export class LocalProjectDirMapper implements ProfileMapper {
     resolve(): { [p: string]: string } {
         return new JsonFileProfileMapper({
