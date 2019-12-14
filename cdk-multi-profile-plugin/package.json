@@ -30,6 +30,7 @@
     "build:watch": "rimraf lib && tsc -w",
     "prepare": "npm run build && npm run test",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint '*/**/*.{ts,tsx}' --report-unused-disable-directives"
   },
   "dependencies": {
