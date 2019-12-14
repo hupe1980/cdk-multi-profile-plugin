@@ -59,5 +59,9 @@
     "rimraf": "^3.0.0",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
+  },
+  "awsProfiles": {
+    "123": "default123",
+    "456": "default123"
   }
 }
