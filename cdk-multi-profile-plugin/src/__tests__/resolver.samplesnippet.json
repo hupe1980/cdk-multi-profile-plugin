@@ -1,0 +1,6 @@
+{
+  "awsProfiles": {
+    "123": "default123",
+    "456": "default123"
+  }
+}

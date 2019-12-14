@@ -3,7 +3,7 @@ import * as os from 'os';
 import * as inquirer from 'inquirer';
 
 import { MfaTokenCache } from './mfa-token-cache';
-import {PackageJsonProfileResolver} from "./profile-resolver";
+import {PrecedenceProfileMapper} from "./profile-mapper";
 
 const tokenCache = new MfaTokenCache();
 
@@ -35,7 +35,7 @@ export const tokenCodeFn = async (
 };
 
 export const readProfiles = (): { [key: string]: string } => {
-  return new PackageJsonProfileResolver().resolve();
+  return new PrecedenceProfileMapper().resolve();
 };
 
 export const getSharedCredentialsFilename = (): string =>
