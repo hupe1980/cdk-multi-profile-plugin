@@ -68,6 +68,16 @@ export class HomeDirJsonProfileMapper implements ProfileMapper {
     }
 }
 
+export class LocalProjectDirMapper implements ProfileMapper {
+    resolve(): { [p: string]: string } {
+        return new JsonFileProfileMapper({
+                workingDirectory: process.cwd(),
+                filename: 'cdkmultiprofileplugin.json'
+            }
+        ).resolve();
+    }
+}
+
 // Will be used for resolving mapping information and applying precedence
 export class PrecedenceProfileMapper implements ProfileMapper {
     resolve(): { [p: string]: string } {
