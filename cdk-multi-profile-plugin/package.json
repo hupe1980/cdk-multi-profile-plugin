@@ -62,6 +62,8 @@
   },
   "awsProfiles": {
     "123": "default123",
-    "456": "default123"
+    "456": "default123",
+    "435": "default435",
+    "765": "default765"
   }
 }

@@ -9,7 +9,7 @@ export interface ProfileMapper {
     resolve(): { [key: string]: string };
 }
 
-interface JsonFileProfileMapperProps {
+export interface JsonFileProfileMapperProps {
     workingDirectory: string;
     filename: string;
 }
@@ -37,8 +37,12 @@ export class JsonFileProfileMapper implements ProfileMapper {
     }
 
     resolve(): { [key: string]: string } {
+        const filename = path.join(this.workingDirectory, this.filename);
+        if (!fs.existsSync(filename)) {
+            return {};
+        }
         const pkg = JSON.parse(
-            fs.readFileSync(path.join(this.workingDirectory, this.filename), this._encoding)
+            fs.readFileSync(filename, this._encoding)
         );
         const {awsProfiles} = pkg;
         return awsProfiles;
@@ -57,14 +61,29 @@ export class PackageJsonProfileMapper implements ProfileMapper {
     }
 }
 
-// TODO:
 // Will default to ~/.cdkmultiprofileplung.json and can be overriden by environment variable
 // CDK_MULTI_PROFILE_PLUGIN_CONFIG=/path/to/file.json
 export class EnvironmentAwareGlobalProfileMapper implements ProfileMapper {
+    public static readonly environmentVariableName = 'CDK_MULTI_PROFILE_PLUGIN_CONFIG';
+    private readonly _defaultGlobalConfigurationFile = '.cdkmultiprofileplung.json';
+    private readonly _workingDirectory: string;
+    private readonly _filename: string;
+
+    constructor() {
+        this._workingDirectory = os.homedir();
+        this._filename = this._defaultGlobalConfigurationFile;
+        const configFileLocationOverride = process.env[EnvironmentAwareGlobalProfileMapper.environmentVariableName];
+        if (configFileLocationOverride) {
+            const configFile = path.parse(configFileLocationOverride);
+            this._workingDirectory = configFile.dir;
+            this._filename = configFile.base;
+        }
+    }
+
     resolve(): { [p: string]: string } {
         return new JsonFileProfileMapper({
-                workingDirectory: os.homedir(),
-                filename: '.cdkmultiprofileplung.json'
+                workingDirectory: this._workingDirectory,
+                filename: this._filename
             }
         ).resolve();
     }
@@ -85,6 +104,9 @@ export class LocalProjectDirMapper implements ProfileMapper {
 export class PrecedenceProfileMapper implements ProfileMapper {
     resolve(): { [p: string]: string } {
         // Temporary in order to get it working again
-        return new PackageJsonProfileMapper().resolve();
+        const packageJsonMappings = new PackageJsonProfileMapper().resolve();
+        const projectLocalMappings = new LocalProjectDirMapper().resolve();
+        const globalMappings = new EnvironmentAwareGlobalProfileMapper().resolve();
+        return {...packageJsonMappings, ...projectLocalMappings, ...globalMappings};
     }
 }
