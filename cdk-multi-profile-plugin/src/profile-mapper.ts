@@ -65,7 +65,7 @@ export class PackageJsonProfileMapper implements ProfileMapper {
 // CDK_MULTI_PROFILE_PLUGIN_CONFIG=/path/to/file.json
 export class EnvironmentAwareGlobalProfileMapper implements ProfileMapper {
     public static readonly environmentVariableName = 'CDK_MULTI_PROFILE_PLUGIN_CONFIG';
-    private readonly _defaultGlobalConfigurationFile = '.cdkmultiprofileplung.json';
+    private readonly _defaultGlobalConfigurationFile = '.cdkmultiprofileplugin.json';
     private readonly _workingDirectory: string;
     private readonly _filename: string;
 
