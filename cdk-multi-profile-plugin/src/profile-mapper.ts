@@ -27,17 +27,17 @@ export interface JsonFileProfileMapperProps {
  *
  */
 export class JsonFileProfileMapper implements ProfileMapper {
+    private readonly _workingDirectory: string;
+    private readonly _filename: string;
     private _encoding = 'utf8';
-    private workingDirectory: string;
-    private filename: string;
 
     constructor(props: JsonFileProfileMapperProps) {
-        this.workingDirectory = props.workingDirectory;
-        this.filename = props.filename;
+        this._workingDirectory = props.workingDirectory;
+        this._filename = props.filename;
     }
 
     resolve(): { [key: string]: string } {
-        const filename = path.join(this.workingDirectory, this.filename);
+        const filename = path.join(this._workingDirectory, this._filename);
         if (!fs.existsSync(filename)) {
             return {};
         }
@@ -54,10 +54,9 @@ export class JsonFileProfileMapper implements ProfileMapper {
 export class PackageJsonProfileMapper implements ProfileMapper {
     resolve(): { [key: string]: string } {
         return new JsonFileProfileMapper({
-                workingDirectory: process.cwd(),
-                filename: 'package.json'
-            }
-        ).resolve();
+            workingDirectory: process.cwd(),
+            filename: 'package.json'
+        }).resolve();
     }
 }
 
@@ -82,10 +81,9 @@ export class EnvironmentAwareGlobalProfileMapper implements ProfileMapper {
 
     resolve(): { [p: string]: string } {
         return new JsonFileProfileMapper({
-                workingDirectory: this._workingDirectory,
-                filename: this._filename
-            }
-        ).resolve();
+            workingDirectory: this._workingDirectory,
+            filename: this._filename
+        }).resolve();
     }
 }
 
@@ -93,10 +91,9 @@ export class EnvironmentAwareGlobalProfileMapper implements ProfileMapper {
 export class LocalProjectDirMapper implements ProfileMapper {
     resolve(): { [p: string]: string } {
         return new JsonFileProfileMapper({
-                workingDirectory: process.cwd(),
-                filename: 'cdkmultiprofileplugin.json'
-            }
-        ).resolve();
+            workingDirectory: process.cwd(),
+            filename: 'cdkmultiprofileplugin.json'
+        }).resolve();
     }
 }
 
