@@ -141,10 +141,13 @@ describe('Global configuration', () => {
 
 describe('When an invalid json file format is deteced', () => {
     it('should return an empty profile mapping when json file is not correctly formatted', () => {
+        const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
         const profiles = new JsonFileProfileMapper({
             workingDirectory: process.cwd(),
             filename: 'README.md'
         }).resolve();
         expect(profiles).toEqual({});
+        expect(consoleSpy).toBeCalledWith('Failed to parse file README.md: ', 'Unexpected token # in JSON at position 0');
+        consoleSpy.mockRestore();
     });
 });
