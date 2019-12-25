@@ -1,9 +1,9 @@
-import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as os from 'os';
 import * as inquirer from 'inquirer';
 
 import { MfaTokenCache } from './mfa-token-cache';
+import {PrecedenceProfileMapper} from "./profile-mapper";
 
 const tokenCache = new MfaTokenCache();
 
@@ -35,14 +35,7 @@ export const tokenCodeFn = async (
 };
 
 export const readProfiles = (): { [key: string]: string } => {
-  const cwd = process.cwd();
-  const pkg = JSON.parse(
-    fs.readFileSync(path.join(cwd, 'package.json'), 'utf8')
-  );
-
-  const { awsProfiles } = pkg;
-
-  return awsProfiles;
+  return new PrecedenceProfileMapper().resolve();
 };
 
 export const getSharedCredentialsFilename = (): string =>

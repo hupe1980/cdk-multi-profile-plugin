@@ -30,6 +30,7 @@
     "build:watch": "rimraf lib && tsc -w",
     "prepare": "npm run build && npm run test",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint '*/**/*.{ts,tsx}' --report-unused-disable-directives"
   },
   "dependencies": {
@@ -58,5 +59,11 @@
     "rimraf": "^3.0.0",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
+  },
+  "awsProfiles": {
+    "123": "default123",
+    "456": "default123",
+    "435": "default435",
+    "765": "default765"
   }
 }
