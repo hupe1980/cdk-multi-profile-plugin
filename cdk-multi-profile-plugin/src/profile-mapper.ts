@@ -102,7 +102,7 @@ export class LocalProjectDirMapper implements ProfileMapper {
     }
 }
 
-// Will be used for resolving mapping information and applying precedence
+// Uses all mappers and applies precedence
 export class PrecedenceProfileMapper implements ProfileMapper {
     resolve(): { [p: string]: string } {
         // Temporary in order to get it working again
