@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "bin": {
     "tester": "bin/example.js"
@@ -24,7 +24,7 @@
     "@aws-cdk/assert": "^1.18.0",
     "@types/jest": "^24.0.23",
     "aws-cdk": "^1.18.0",
-    "cdk-multi-profile-plugin": "^1.0.1",
+    "cdk-multi-profile-plugin": "^1.1.0",
     "jest": "^24.9.0",
     "jest-cdk-snapshot": "^1.2.0",
     "ts-jest": "^24.2.0",
