@@ -41,11 +41,16 @@ export class JsonFileProfileMapper implements ProfileMapper {
         if (!fs.existsSync(filename)) {
             return {};
         }
-        const pkg = JSON.parse(
-            fs.readFileSync(filename, this._encoding)
-        );
-        const {awsProfiles} = pkg;
-        return awsProfiles;
+        try {
+            const pkg = JSON.parse(
+                fs.readFileSync(filename, this._encoding)
+            );
+            const {awsProfiles} = pkg;
+            return awsProfiles;
+        } catch (e) {
+            console.log(`Failed to parse file ${this._filename}: `, e.message);
+        }
+        return {};
     }
 
 }

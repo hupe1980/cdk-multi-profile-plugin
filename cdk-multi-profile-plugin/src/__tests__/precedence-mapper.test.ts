@@ -138,3 +138,13 @@ describe('Global configuration', () => {
         expect(profiles['345']).toBe('global345')
     });
 });
+
+describe('When an invalid json file format is deteced', () => {
+    it('should return an empty profile mapping when json file is not correctly formatted', () => {
+        const profiles = new JsonFileProfileMapper({
+            workingDirectory: process.cwd(),
+            filename: 'README.md'
+        }).resolve();
+        expect(profiles).toEqual({});
+    });
+});
