@@ -11,7 +11,7 @@
     "test": "jest",
     "lint": "echo 'No linting!'",
     "deploy": "cdk deploy Example*",
-    "deploy:ignore": "IGNORE_CDK_MULTI_PROFILE_PLUGIN=false cdk deploy Example*",
+    "deploy:ignore": "IGNORE_CDK_ASSUME_ROLE_PLUGIN=false cdk deploy Example*",
     "synth": "cdk synth Example*",
     "diff": "cdk diff Example*",
     "destroy": "cdk destroy Example*"
