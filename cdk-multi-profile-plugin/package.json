@@ -36,7 +36,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "fs-extra": "^8.1.0",
-    "inquirer": "^7.0.0",
+    "inquirer": "^7.0.4",
     "lodash.isempty": "^4.4.0"
   },
   "peerDependencies": {
@@ -46,19 +46,19 @@
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
     "@types/inquirer": "^6.5.0",
-    "@types/jest": "^24.0.23",
+    "@types/jest": "^24.9.1",
     "@types/lodash.isempty": "^4.4.6",
-    "@types/node": "^12.12.14",
-    "@typescript-eslint/eslint-plugin": "^2.9.0",
-    "@typescript-eslint/parser": "^2.9.0",
-    "aws-cdk": "^1.18.0",
-    "aws-sdk": "^2.580.0",
-    "eslint": "^6.7.1",
-    "eslint-plugin-jest": "^23.0.5",
+    "@types/node": "^12.12.26",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "aws-cdk": "^1.23.0",
+    "aws-sdk": "^2.614.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.7.0",
     "jest": "^24.9.0",
-    "rimraf": "^3.0.0",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.2"
+    "rimraf": "^3.0.2",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.5"
   },
   "awsProfiles": {
     "123": "default123",
