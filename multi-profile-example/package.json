@@ -1,0 +1,38 @@
+{
+  "name": "multi-profile-example",
+  "version": "1.1.0",
+  "private": true,
+  "bin": {
+    "tester": "bin/example.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "lint": "echo 'No linting!'",
+    "deploy": "cdk deploy Example*",
+    "deploy:ignore": "IGNORE_CDK_MULTI_PROFILE_PLUGIN=false cdk deploy Example*",
+    "synth": "cdk synth Example*",
+    "diff": "cdk diff Example*",
+    "destroy": "cdk destroy Example*"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "^1.18.0",
+    "source-map-support": "^0.5.9"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.18.0",
+    "@types/jest": "^24.0.23",
+    "aws-cdk": "^1.18.0",
+    "cdk-multi-profile-plugin": "^1.1.0",
+    "jest": "^24.9.0",
+    "jest-cdk-snapshot": "^1.2.0",
+    "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.2"
+  },
+  "awsProfiles": {
+    "123": "default123",
+    "456": "default123"
+  }
+}

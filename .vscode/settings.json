@@ -2,5 +2,8 @@
   "eslint.validate": ["javascript", "typescript"],
   "eslint.autoFixOnSave": true,
   "editor.formatOnSave": true,
-  "eslint.alwaysShowStatus": true
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
