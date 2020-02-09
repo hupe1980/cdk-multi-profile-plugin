@@ -1,6 +1,6 @@
 {
   "name": "assume-role-example",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "bin": {
     "tester": "bin/example.js"
@@ -24,7 +24,7 @@
     "@aws-cdk/assert": "^1.23.0",
     "@types/jest": "^24.9.1",
     "aws-cdk": "^1.23.0",
-    "cdk-assume-role-plugin": "^1.1.1",
+    "cdk-assume-role-plugin": "^1.1.2",
     "jest": "^24.9.0",
     "jest-cdk-snapshot": "^1.2.1",
     "ts-jest": "^24.3.0",
