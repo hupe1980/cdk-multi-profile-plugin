@@ -6,8 +6,8 @@
     "build": "lerna exec -- npm run build",
     "test": "lerna exec -- npm run test",
     "lint": "lerna exec -- npm run lint",
-    "all:outdated": "npm outdated; lerna exec --no-bail -- npm outdated",
-    "all:upgrade": "npm upgrade; lerna exec --no-bail -- npm upgrade"
+    "outdated:all": "npm outdated; lerna exec --no-bail -- npm outdated",
+    "upgrade:all": "npm upgrade; lerna exec --no-bail -- npm upgrade"
   },
   "devDependencies": {
     "lerna": "^3.20.2"
