@@ -12,15 +12,17 @@ npm install cdk-multi-profile-plugin
 
 ## How to use
 
+### Plugin configuration
+
 There are two ways to tell cdk to use the plugin. The first way is to include an explicit --plugin option whenever you use a cdk command.
 
 ```bash
 npx cdk deploy --plugin "cdk-multi-profile-plugin" *Stack
 ```
 
-The second way is to add the following entry to the cdk.json file
+The second way is to add the following entry to the `cdk.json` file
 
-```javascript
+```json
 // cdk.json
 {
   "app": "npx ts-node bin/YOURAPP.ts",
@@ -28,7 +30,9 @@ The second way is to add the following entry to the cdk.json file
 }
 ```
 
-Finally, add the account / profile mapping in the package.json
+### Configure account mapping
+
+Add the account / profile mapping in the `package.json`
 
 ```javascript
 // package.json
@@ -46,9 +50,19 @@ Finally, add the account / profile mapping in the package.json
 }
 ```
 
+Finally add the account number to the environment of your stack.
+
+```typescript
+new CdkStack(app, `Stack`, {
+  env: {
+    account: "1234number",
+  },
+});
+```
+
 ## Precedence of account number to profile mapping
 
-When working in a team every team member should be allowed to have an individual configuration of locally configured AWS profiles. 
+When working in a team every team member should be allowed to have an individual configuration of locally configured AWS profiles.
 There also might be a need to override the mapping for an account within a build job.
 
 The following order defines the precedence of your mapping:
@@ -58,25 +72,25 @@ The following order defines the precedence of your mapping:
 3. Project local `package.json`
 
 The `<projectDir>/cdkmultiprofileplugin.json` can optionally be under version control.
-This depends on your preference. 
+This depends on your preference.
 
 `package.json` approach works if you can ensure equal AWS profile names across all team members or build runners.
 
 `package.json` based mapping is overrideable by using `<projectDir>/cdkmultiprofileplugin.json`.
 The configuration file `<projectDir>/cdkmultiprofileplugin.json` can be ignored or put under version control.
 This decision is dependant on your use case.
-Either you also ensure equal AWS profile names for every team member and build runner. 
-In this case, it safely can be put under version control. 
+Either you also ensure equal AWS profile names for every team member and build runner.
+In this case, it safely can be put under version control.
 You can locally override your mapping if you choose to ignore it.
 
 With the global configuration file you can override all of the approaches above.
 The location of the global configuration file is `~/.cdkmultiprofileplugin.json`.
 To customize the location of the configuration file use the environment variable `CDK_MULTI_PROFILE_PLUGIN_CONFIG`.
 
-The configuration uses the following json based format. 
+The configuration uses the following json based format.
 The plugin will ignore unknown or additionals fields in the configuration.
 
-```json 
+```json
 `{
     "awsProfiles": {
         "123": "default123",
