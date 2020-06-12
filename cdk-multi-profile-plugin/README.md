@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-npm install cdk-multi-profile-plugin
+npm install cdk-multi-profile-plugin aws-sdk
 ```
 
 ## How to use
