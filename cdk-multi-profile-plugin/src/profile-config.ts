@@ -5,11 +5,15 @@ export class ProfileConfig {
   private config: Record<string, Record<string, string>>;
 
   constructor(path: string) {
-    const raw = fs.readFileSync(path, {
-      encoding: 'utf-8',
-    });
+    try {
+      const raw = fs.readFileSync(path, {
+        encoding: 'utf-8',
+      });
 
-    this.config = ini.parse(raw);
+      this.config = ini.parse(raw);
+    } catch (e) {
+      this.config = {};
+    }
   }
 
   public getProfile(profile: string): Record<string, string> {
