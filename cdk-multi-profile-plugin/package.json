@@ -1,7 +1,7 @@
 {
   "name": "cdk-multi-profile-plugin",
   "version": "1.1.5",
-  "description": "Adds multi profile/account, mfa support and aws sso support to cdk apps",
+  "description": "Adds multi profile/account, mfa and aws sso support to cdk apps",
   "keywords": [
     "aws",
     "cdk",
