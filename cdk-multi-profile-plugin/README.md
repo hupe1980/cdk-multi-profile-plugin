@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin.svg?branch=master)](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin)
 
-> Adds multi profile/account and mfa support to cdk apps
+> Adds multi profile/account, mfa support and aws sso support to cdk apps
 
 ## Installation
 
@@ -104,6 +104,7 @@ The plugin will ignore unknown or additionals fields in the configuration.
 The plugin supports the following environment variables:
 
 - `AWS_SHARED_CREDENTIALS_FILE` – Specifies the location of the file that the AWS CLI uses to store access keys. The default path is `~/.aws/credentials`).
+- `AWS_CONFIG_FILE` - The location of the config file used by this plugin. By default this value is `~/.aws/config`. 
 - `IGNORE_CDK_MULTI_PROFILE_PLUGIN=true` - Turn off the plugin. Defaults to `false`.
 - `CDK_MULTI_PROFILE_PLUGIN_CONFIG` - Specifies the localtion of the global account to profile mapping. Defaults to `~/.cdkmultiprofileplugin.json`
 

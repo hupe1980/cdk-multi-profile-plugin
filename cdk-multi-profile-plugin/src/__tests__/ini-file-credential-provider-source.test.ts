@@ -11,7 +11,7 @@ describe('isAvailable', () => {
     const ifcps = new IniFileCredentialProviderSource(
       'name',
       { '123': 'profile' },
-      'filename'
+      'filename',
     );
     const actual = await ifcps.isAvailable();
     expect(actual).toBe(true);
@@ -23,7 +23,7 @@ describe('canProvideCredentials', () => {
     const ifcps = new IniFileCredentialProviderSource(
       'name',
       { '4711': 'profile' },
-      'filename'
+      'filename',
     );
     const actual = await ifcps.canProvideCredentials('0815');
     expect(actual).toBe(false);
@@ -33,7 +33,7 @@ describe('canProvideCredentials', () => {
     const ifcps = new IniFileCredentialProviderSource(
       'name',
       { '4711': 'profile' },
-      'filename'
+      'filename',
     );
     const actual = await ifcps.canProvideCredentials('4711');
     expect(actual).toBe(true);

@@ -7,7 +7,7 @@ export class MultiProfilePlugin implements Plugin {
 
   constructor(
     private readonly profiles: { [key: string]: string },
-    private readonly filename: string
+    private readonly filename: string,
   ) {}
 
   public init(host: PluginHost): void {
@@ -19,8 +19,8 @@ export class MultiProfilePlugin implements Plugin {
       new IniFileCredentialProviderSource(
         'cdk-multi-profile-plugin',
         this.profiles,
-        this.filename
-      )
+        this.filename,
+      ),
     );
   }
 }

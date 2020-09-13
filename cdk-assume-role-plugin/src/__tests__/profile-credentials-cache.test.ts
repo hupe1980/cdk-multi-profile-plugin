@@ -3,7 +3,7 @@ import { ProfileCredentialsCache } from '../profile-credentials-cache';
 
 const credentails = new Credentials({
   accessKeyId: 'dummy',
-  secretAccessKey: 'dummy'
+  secretAccessKey: 'dummy',
 });
 
 it('should return false if cache is empty', async () => {

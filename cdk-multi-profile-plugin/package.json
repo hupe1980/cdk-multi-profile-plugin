@@ -1,13 +1,15 @@
 {
   "name": "cdk-multi-profile-plugin",
   "version": "1.1.5",
-  "description": "Adds multi profile/account and mfa support to cdk apps",
+  "description": "Adds multi profile/account, mfa support and aws sso support to cdk apps",
   "keywords": [
     "aws",
     "cdk",
     "profile",
     "mfa",
     "mfaSerial",
+    "aws sso",
+    "sso",
     "multi-account",
     "plugin"
   ],
@@ -30,12 +32,12 @@
     "build:watch": "rimraf lib && tsc -w",
     "prepare": "npm run build && npm run test",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "lint": "eslint '*/**/*.{ts,tsx}' --report-unused-disable-directives"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "colors": "^1.4.0",
     "fs-extra": "^9.0.0",
+    "ini": "^1.3.5",
     "inquirer": "^7.1.0",
     "lodash.isempty": "^4.4.0"
   },
@@ -45,16 +47,13 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",
+    "@types/ini": "^1.3.30",
     "@types/inquirer": "^7.3.1",
     "@types/jest": "^26.0.13",
     "@types/lodash.isempty": "^4.4.6",
     "@types/node": "^12.12.38",
-    "@typescript-eslint/eslint-plugin": "^4.1.0",
-    "@typescript-eslint/parser": "^4.1.0",
     "aws-cdk": "^1.62.0",
     "aws-sdk": "^2.739.0",
-    "eslint": "^7.0.0",
-    "eslint-plugin-jest": "^24.0.0",
     "jest": "^26.4.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.3.0",
