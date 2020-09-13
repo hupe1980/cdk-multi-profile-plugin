@@ -99,6 +99,13 @@ The plugin will ignore unknown or additionals fields in the configuration.
 }`
 ```
 
+## AWS SSO
+Before you can run an aws cdk with aws sso, you must retrieve and cache a set of temporary credentials. To get these temporary credentials, run the following command.
+
+```bash
+aws sso login --profile sso-profile
+```
+
 ## Environment Variables
 
 The plugin supports the following environment variables:
