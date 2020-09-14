@@ -4,19 +4,19 @@ import * as inquirer from 'inquirer';
 
 import {
   AssumeRolePluginConfig,
-  PrecedenceProfileMapper
+  PrecedenceProfileMapper,
 } from './profile-mapper';
 
 export const tokenCodeFn = async (
   mfaSerial: string,
-  callback: (err?: Error, token?: string) => void
+  callback: (err?: Error, token?: string) => void,
 ): Promise<void> => {
   try {
     const { token } = await inquirer.prompt({
       name: 'token',
       type: 'input',
       default: '',
-      message: `MFA token for ${mfaSerial}:`
+      message: `MFA token for ${mfaSerial}:`,
       // validate: async (input: string) => {
       //   return true;
       // }

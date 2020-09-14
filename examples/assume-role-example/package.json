@@ -1,6 +1,6 @@
 {
-  "name": "multi-profile-example",
-  "version": "1.1.5",
+  "name": "assume-role-example",
+  "version": "1.1.3",
   "private": true,
   "bin": {
     "tester": "bin/example.js"
@@ -9,9 +9,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "lint": "echo 'No linting!'",
     "deploy": "cdk deploy Example*",
-    "deploy:ignore": "IGNORE_CDK_MULTI_PROFILE_PLUGIN=false cdk deploy Example*",
+    "deploy:ignore": "IGNORE_CDK_ASSUME_ROLE_PLUGIN=false cdk deploy Example*",
     "synth": "cdk synth Example*",
     "diff": "cdk diff Example*",
     "destroy": "cdk destroy Example*"
@@ -24,15 +23,18 @@
     "@aws-cdk/assert": "^1.62.0",
     "@types/jest": "^26.0.13",
     "aws-cdk": "^1.62.0",
-    "cdk-multi-profile-plugin": "^1.1.5",
+    "cdk-assume-role-plugin": "^1.1.3",
     "jest": "^26.4.2",
     "jest-cdk-snapshot": "^1.3.0",
     "ts-jest": "^26.3.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   },
-  "awsProfiles": {
-    "123": "default123",
-    "456": "default123"
+  "cdkAssumeRolePlugin": {
+    "userProfile": "idp",
+    "roles": {
+      "123": "role1",
+      "456": "role2"
+    }
   }
 }

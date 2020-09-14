@@ -62,7 +62,7 @@ export class PackageJsonProfileMapper implements ProfileMapper {
   resolve(): AssumeRolePluginConfig {
     return new JsonFileProfileMapper({
       workingDirectory: process.cwd(),
-      filename: 'package.json'
+      filename: 'package.json',
     }).resolve();
   }
 }
@@ -92,7 +92,7 @@ export class EnvironmentAwareGlobalProfileMapper implements ProfileMapper {
   resolve(): AssumeRolePluginConfig {
     return new JsonFileProfileMapper({
       workingDirectory: this._workingDirectory,
-      filename: this._filename
+      filename: this._filename,
     }).resolve();
   }
 }
@@ -102,7 +102,7 @@ export class LocalProjectDirMapper implements ProfileMapper {
   resolve(): AssumeRolePluginConfig {
     return new JsonFileProfileMapper({
       workingDirectory: process.cwd(),
-      filename: 'cdkmultiprofileplugin.json'
+      filename: 'cdkmultiprofileplugin.json',
     }).resolve();
   }
 }
@@ -117,7 +117,7 @@ export class PrecedenceProfileMapper implements ProfileMapper {
     return {
       ...packageJsonMappings,
       ...projectLocalMappings,
-      ...globalMappings
+      ...globalMappings,
     };
   }
 }

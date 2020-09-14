@@ -4,7 +4,7 @@ import { PluginHost } from 'aws-cdk';
 const host: PluginHost = {
   credentialProviderSources: [],
   load: jest.fn(),
-  registerCredentialProviderSource: jest.fn()
+  registerCredentialProviderSource: jest.fn(),
 };
 
 beforeEach(() => {

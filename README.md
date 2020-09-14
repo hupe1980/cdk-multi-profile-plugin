@@ -1,7 +1,7 @@
 # cdk-multi-profile-plugin
-[![Build Status](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin.svg?branch=master)](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin)
+[![Build Status](https://github.com/hupe1980/cdk-multi-profile-plugin/workflows/Build/badge.svg)](https://github.com/hupe1980/cdk-multi-profile-plugin/workflows/Build/badge.svg)
 
-> Adds multi profile/account and mfa support to cdk apps
+> Adds multi profile/account, mfa and aws sso support to cdk apps
 
 ## Documentation
 

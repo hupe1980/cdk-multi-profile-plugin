@@ -3,7 +3,7 @@ import isEmpty from 'lodash.isempty';
 import {
   SharedIniFileCredentials,
   Credentials,
-  TemporaryCredentials
+  TemporaryCredentials,
 } from 'aws-sdk';
 import { CredentialProviderSource, Mode } from 'aws-cdk';
 
@@ -18,12 +18,12 @@ export class TemporaryCredentialProviderSource
     public readonly name: string,
     private readonly profile: string,
     private readonly roles: Record<string, string>,
-    private readonly filename: string
+    private readonly filename: string,
   ) {}
 
   public canProvideCredentials(accountId: string): Promise<boolean> {
     return Promise.resolve(
-      Object.prototype.hasOwnProperty.call(this.roles, accountId)
+      Object.prototype.hasOwnProperty.call(this.roles, accountId),
     );
   }
 
@@ -33,8 +33,8 @@ export class TemporaryCredentialProviderSource
     console.log('\n');
     console.log(
       ` 🚀  Using role ${green(roleArn)} for account ${green(
-        accountId
-      )} in mode ${green(Mode[mode])}`
+        accountId,
+      )} in mode ${green(Mode[mode])}`,
     );
     console.log('\n');
 
@@ -44,7 +44,7 @@ export class TemporaryCredentialProviderSource
       masterCredentials = new SharedIniFileCredentials({
         tokenCodeFn,
         filename: this.filename,
-        profile: this.profile
+        profile: this.profile,
       });
 
       profileCredentialsCache.set(this.profile, masterCredentials);
@@ -53,9 +53,9 @@ export class TemporaryCredentialProviderSource
     const credentials = new TemporaryCredentials(
       {
         RoleArn: roleArn,
-        RoleSessionName: 'cdk-assume-role-plugin'
+        RoleSessionName: 'cdk-assume-role-plugin',
       },
-      masterCredentials
+      masterCredentials,
     );
 
     return Promise.resolve(credentials);

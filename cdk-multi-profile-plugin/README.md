@@ -1,8 +1,8 @@
 # cdk-multi-profile-plugin
 
-[![Build Status](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin.svg?branch=master)](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin)
+[![Build Status](https://github.com/hupe1980/cdk-multi-profile-plugin/workflows/Build/badge.svg)](https://github.com/hupe1980/cdk-multi-profile-plugin/workflows/Build/badge.svg)
 
-> Adds multi profile/account and mfa support to cdk apps
+> Adds multi profile/account, mfa and aws sso support to cdk apps
 
 ## Installation
 
@@ -99,11 +99,19 @@ The plugin will ignore unknown or additionals fields in the configuration.
 }`
 ```
 
+## AWS SSO
+Before you can run an aws cdk with aws sso, you must retrieve and cache a set of temporary credentials. To get these temporary credentials, run the following command.
+
+```bash
+aws sso login --profile sso-profile
+```
+
 ## Environment Variables
 
 The plugin supports the following environment variables:
 
 - `AWS_SHARED_CREDENTIALS_FILE` – Specifies the location of the file that the AWS CLI uses to store access keys. The default path is `~/.aws/credentials`).
+- `AWS_CONFIG_FILE` - The location of the config file used by this plugin. By default this value is `~/.aws/config`. 
 - `IGNORE_CDK_MULTI_PROFILE_PLUGIN=true` - Turn off the plugin. Defaults to `false`.
 - `CDK_MULTI_PROFILE_PLUGIN_CONFIG` - Specifies the localtion of the global account to profile mapping. Defaults to `~/.cdkmultiprofileplugin.json`
 

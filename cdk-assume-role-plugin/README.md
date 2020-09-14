@@ -1,6 +1,6 @@
 # cdk-assume-role-plugin
 
-[![Build Status](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin.svg?branch=master)](https://travis-ci.org/hupe1980/cdk-multi-profile-plugin)
+[![Build Status](https://github.com/hupe1980/cdk-multi-profile-plugin/workflows/Build/badge.svg)](https://github.com/hupe1980/cdk-multi-profile-plugin/workflows/Build/badge.svg)
 
 > Adds assume role and mfa support to cdk apps
 

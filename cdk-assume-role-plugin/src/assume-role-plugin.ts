@@ -8,7 +8,7 @@ export class AssumeRolePlugin implements Plugin {
   constructor(
     private readonly profile: string,
     private readonly roles: Record<string, string>,
-    private readonly filename: string
+    private readonly filename: string,
   ) {}
 
   public init(host: PluginHost): void {
@@ -21,8 +21,8 @@ export class AssumeRolePlugin implements Plugin {
         'cdk-assume-role-plugin',
         this.profile,
         this.roles,
-        this.filename
-      )
+        this.filename,
+      ),
     );
   }
 }
