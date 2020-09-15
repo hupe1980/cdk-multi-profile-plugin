@@ -3,7 +3,7 @@ import isEmpty from 'lodash.isempty';
 import { SharedIniFileCredentials, Credentials, SSO } from 'aws-sdk';
 import { CredentialProviderSource, Mode } from 'aws-cdk';
 
-import { tokenCodeFn, getConfigFilename, getSsoCachePath } from './utils';
+import { tokenCodeFn, getConfigFilename, getSSOCachePath } from './utils';
 import { ProfileCredentialsCache } from './profile-credentials-cache';
 import { ProfileConfig } from './profile-config';
 import { SSOLoginCache } from './sso-login-cache';
@@ -21,7 +21,7 @@ export class IniFileCredentialProviderSource
     private readonly filename: string,
   ) {
     this.profileConfig = new ProfileConfig(getConfigFilename());
-    this.ssoLoginCache = new SSOLoginCache(getSsoCachePath());
+    this.ssoLoginCache = new SSOLoginCache(getSSOCachePath());
   }
 
   public canProvideCredentials(accountId: string): Promise<boolean> {
@@ -66,7 +66,7 @@ export class IniFileCredentialProviderSource
           !roleCredentials.secretAccessKey ||
           !roleCredentials.sessionToken
         )
-          throw new Error('Invlaid roleCredentials!');
+          throw new Error('Invalid roleCredentials!');
 
         credentials = new Credentials({
           accessKeyId: roleCredentials.accessKeyId,

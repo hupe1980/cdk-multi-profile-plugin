@@ -46,5 +46,5 @@ export const getSharedCredentialsFilename = (): string =>
 export const getConfigFilename = (): string =>
   process.env.AWS_CONFIG_FILE ?? path.join(os.homedir(), '.aws', 'config');
 
-export const getSsoCachePath = (): string =>
+export const getSSOCachePath = (): string =>
   path.join(os.homedir(), '.aws', 'sso', 'cache');
