@@ -9,7 +9,7 @@ import {
 
 export const tokenCodeFn = async (
   mfaSerial: string,
-  callback: (err?: Error, token?: string) => void,
+  callback: (err?: unknown, token?: string) => void,
 ): Promise<void> => {
   try {
     const { token } = await inquirer.prompt({

@@ -12,7 +12,7 @@
   "@typescript-eslint/eslint-plugin": "^4.1.0",
   "@typescript-eslint/parser": "^4.1.0",
   "resolutions": {
-    "**/aws-sdk": "2.739.0"
+    "**/aws-sdk": "2.978.0"
   },
   "workspaces": [
     "examples/*",

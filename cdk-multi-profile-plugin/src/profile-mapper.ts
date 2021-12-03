@@ -46,7 +46,11 @@ export class JsonFileProfileMapper implements ProfileMapper {
       const { awsProfiles } = pkg;
       return awsProfiles;
     } catch (e) {
-      console.log(`Failed to parse file ${this._filename}: `, e.message);
+      if (e instanceof Error) {
+        console.log(`Failed to parse file ${this._filename}: `, e.message);
+      } else {
+        console.log(`Failed to parse file ${this._filename}: `, e);
+      }
     }
     return {};
   }
