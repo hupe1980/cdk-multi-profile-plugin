@@ -16,16 +16,17 @@
     "destroy": "cdk destroy Example*"
   },
   "dependencies": {
-    "@aws-cdk/core": "^1.62.0",
+    "aws-cdk-lib": "^2.15.0",
+    "constructs": "^10.0.0",
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.62.0",
+    "@aws-cdk/assert": "^2.15.0",
     "@types/jest": "^26.0.13",
-    "aws-cdk": "^1.62.0",
+    "aws-cdk": "^2.15.0",
     "cdk-multi-profile-plugin": "^1.2.1",
     "jest": "^26.4.2",
-    "jest-cdk-snapshot": "^1.3.0",
+    "jest-cdk-snapshot": "^2.0.1",
     "ts-jest": "^26.3.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"

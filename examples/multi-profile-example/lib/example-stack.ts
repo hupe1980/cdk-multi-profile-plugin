@@ -1,4 +1,5 @@
-import { Construct, Stack, StackProps } from '@aws-cdk/core';
+import { Stack, StackProps } from 'aws-cdk-lib/core';
+import { Construct } from 'constructs';
 
 export class ExampleStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
