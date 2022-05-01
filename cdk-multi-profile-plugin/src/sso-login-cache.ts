@@ -14,9 +14,9 @@ export class SSOLoginCache {
     }
   }
 
-  public getCachedLogin(
-    ssoProfile: Record<string, string>,
-  ): { accessToken: string } {
+  public getCachedLogin(ssoProfile: Record<string, string>): {
+    accessToken: string;
+  } {
     for (const file of this.files) {
       const json = fs.readJSONSync(file);
       if (

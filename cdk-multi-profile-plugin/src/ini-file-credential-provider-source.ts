@@ -11,7 +11,8 @@ import { SSOLoginCache } from './sso-login-cache';
 const profileCredentialsCache = new ProfileCredentialsCache();
 
 export class IniFileCredentialProviderSource
-  implements CredentialProviderSource {
+  implements CredentialProviderSource
+{
   private profileConfig: ProfileConfig;
   private ssoLoginCache: SSOLoginCache;
 

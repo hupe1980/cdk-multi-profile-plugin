@@ -30,7 +30,7 @@ export const tokenCodeFn = async (
     return callback(undefined, token);
   } catch (e) {
     console.error('error:', e);
-    return callback(e, undefined);
+    return callback(e as Error, undefined);
   }
 };
 
