@@ -1,7 +1,7 @@
 import { green } from 'colors/safe';
 import isEmpty from 'lodash.isempty';
 import { SharedIniFileCredentials, Credentials, SSO } from 'aws-sdk';
-import { CredentialProviderSource, Mode } from "aws-cdk/lib/api/plugin";
+import { CredentialProviderSource, Mode } from 'aws-cdk/lib/api/plugin';
 
 import { tokenCodeFn, getConfigFilename, getSSOCachePath } from './utils';
 import { ProfileCredentialsCache } from './profile-credentials-cache';
