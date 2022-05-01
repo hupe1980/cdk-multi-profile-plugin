@@ -1,10 +1,14 @@
 import { MultiProfilePlugin } from '../multi-profile-plugin';
-import { PluginHost } from 'aws-cdk';
+import {ContextProviderPlugin, PluginHost} from 'aws-cdk/lib/api/plugin';
 
 const host: PluginHost = {
-  credentialProviderSources: [],
-  load: jest.fn(),
-  registerCredentialProviderSource: jest.fn(),
+    credentialProviderSources: [],
+    load: jest.fn(),
+    registerCredentialProviderSource: jest.fn(),
+    contextProviderPlugins: {},
+    registerContextProviderAlpha: function (_pluginProviderName: string, _provider: ContextProviderPlugin): void {
+        throw new Error('Function not implemented.');
+    }
 };
 
 beforeEach(() => {

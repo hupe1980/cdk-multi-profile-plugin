@@ -1,4 +1,4 @@
-import { App } from '@aws-cdk/core';
+import { App } from 'aws-cdk-lib';
 import { ExampleStack } from '../lib/example-stack';
 import 'jest-cdk-snapshot';
 
