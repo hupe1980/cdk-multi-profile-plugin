@@ -35,7 +35,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "colors": "^1.4.0",
+    "colors": "1.4.0",
     "fs-extra": "^9.1.0",
     "ini": "^3.0.0",
     "inquirer": "^8.2.4",
