@@ -29,7 +29,6 @@ export interface JsonFileProfileMapperProps {
 export class JsonFileProfileMapper implements ProfileMapper {
   private readonly _workingDirectory: string;
   private readonly _filename: string;
-  private _encoding = 'utf8';
 
   constructor(props: JsonFileProfileMapperProps) {
     this._workingDirectory = props.workingDirectory;
@@ -42,7 +41,12 @@ export class JsonFileProfileMapper implements ProfileMapper {
       return {};
     }
     try {
-      const pkg = JSON.parse(fs.readFileSync(filename, this._encoding));
+      const pkg = JSON.parse(
+        fs.readFileSync(filename, {
+          encoding: 'utf8',
+          flag: 'r',
+        }),
+      );
       const { awsProfiles } = pkg;
       return awsProfiles;
     } catch (e) {
