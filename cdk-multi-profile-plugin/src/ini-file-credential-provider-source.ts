@@ -50,9 +50,10 @@ export class IniFileCredentialProviderSource
     if (!credentials) {
       if (this.profileConfig.isSSOProfile(profile)) {
         const ssoProfile = this.profileConfig.getProfile(profile);
-        const ssoLogin = this.ssoLoginCache.getCachedLogin(ssoProfile);
+        const ssoSettings = this.profileConfig.getSSOSettings(profile);
+        const ssoLogin = this.ssoLoginCache.getCachedLogin(ssoSettings);
 
-        const sso = new SSO({ region: ssoProfile.sso_region });
+        const sso = new SSO({ region: ssoSettings.sso_region });
 
         const { roleCredentials } = await sso
           .getRoleCredentials({
