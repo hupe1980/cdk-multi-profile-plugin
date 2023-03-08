@@ -20,11 +20,28 @@ export class ProfileConfig {
     return this.config[`profile ${profile}`];
   }
 
+  public getSSOSession(ssoSession: string): Record<string, string> {
+    return this.config[`sso-session ${ssoSession}`];
+  }
+
+  public getSSOSettings(profile: string): Record<string, string> {
+    if (!this.isSSOProfile(profile)) return {};
+
+    const config = this.getProfile(profile);
+    let ssoConfig: Record<string, string> = {};
+    if (config?.sso_session) {
+      ssoConfig = this.getSSOSession(config.sso_session);
+    }
+    const ssoSettings = {
+      sso_start_url: config?.sso_start_url ?? ssoConfig?.sso_start_url,
+      sso_region: config?.sso_region ?? ssoConfig?.sso_region,
+    };
+    return ssoSettings;
+  }
+
   public isSSOProfile(profile: string): boolean {
     const config = this.getProfile(profile);
 
-    if (config?.sso_start_url) return true;
-
-    return false;
+    return Boolean(config?.sso_start_url || config?.sso_session);
   }
 }
